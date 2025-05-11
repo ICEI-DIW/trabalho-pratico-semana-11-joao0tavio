@@ -14,5 +14,25 @@
       "nome": "Usuario Comum",
       "email": "user@abc.com"
     }
+  ],
+  "receitas": [
+    {
+      "id": 1,
+      "nome": "Feijoada",
+      "descricao": "Prato típico brasileiro com feijão preto e carnes.",
+      "categoria": "Tradicional"
+    },
+    {
+      "id": 2,
+      "nome": "Hambúrguer",
+      "descricao": "Sanduíche com carne, queijo e vegetais.",
+      "categoria": "Fast Food"
+    },
+    {
+      "id": 3,
+      "nome": "Macarrão à Bolonhesa",
+      "descricao": "Massa italiana com molho de carne.",
+      "categoria": "Italiana"
+    }
   ]
 }

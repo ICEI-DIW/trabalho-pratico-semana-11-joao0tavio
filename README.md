@@ -4,14 +4,14 @@ Nessa etapa, vamos evoluir o projeto anterior e contemplar um ambiente de desenv
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: João Otávio Gurgel de Oliveira  
+- Matricula: 895169
+- Proposta de projeto escolhida: Diretório de Receitas
+- Breve descrição sobre seu projeto: Projeto de site de receitas brasileiras. Contém apenas receitas brasileiras. 
 
 **Print do teste da API com visualização do JSON**
 
-<<  COLOQUE A IMAGEM AQUI >>
+![alt text](image.png)
 
 **Print da aba NETWORK com requisições Fetch/XHR**
 
