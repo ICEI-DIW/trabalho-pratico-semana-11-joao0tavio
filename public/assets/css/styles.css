@@ -1,0 +1,587 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    background-color: #fff;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+a {
+    text-decoration: none;
+}
+.cabecalho {
+    width: 100%;
+    padding: 10px 30px;
+    background-color:#3a5e3d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 10; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: none; 
+}
+.menu-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #ffffff;
+}
+.menu-alternar {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+}
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    flex-grow: 1;
+}
+.navegacao-superior {
+    display: flex;
+    align-items: center;
+}
+.navegacao-superior ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.navegacao-superior a {
+    text-decoration: none;
+    color: #3a5e3d;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.navegacao-superior a:hover {
+    background-color: #3a5e3d;
+}
+.form-pesquisa {
+    display: flex;
+    align-items: center;
+}
+.campo-pesquisa {
+    padding: 5px 10px;
+    border: 1px solid #3a5e3d;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 150px;
+}
+.botao-pesquisa {
+    background-color: #3a5e3d;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-pesquisa:hover {
+    background-color: #3a5e3d;
+}
+.barra-lateral {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    overflow-y: auto;
+    transition: left 0.3s ease, opacity 0.3s ease; 
+    z-index: 15; 
+    border: none; /* Remove as bordas */
+    visibility: hidden; /* Esconde o menu lateral inicialmente */
+    opacity: 0; /* Torna o menu invisível */
+}
+.barra-lateral.show {
+    left: 0;
+    visibility: visible; /* Torna o menu visível */
+    opacity: 1; /* Torna o menu opaco */
+}
+.botao-fechar {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    color: #3a5e3d;
+}
+.titulo-barra-lateral {
+    color: #4B7A4F;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.titulo-destaque {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #3a5e3d;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #3a5e3d;
+    display: block;
+    width: 95%; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Estilos para o Contêiner do Carrossel de Destaque */
+.carrossel-destaque-container {
+    margin-top: 120px; /* Espaçamento maior abaixo do cabeçalho */
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    max-width: 95%; /* Aumenta a largura para ocupar quase toda a página */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo (título e carrossel) horizontalmente */
+}
+
+/* Estilos para o Carrossel (adaptados do Bootstrap) */
+.carousel {
+    position: relative;
+    width: 100%; /* Faz o carrossel ocupar a largura total do seu contêiner pai (carrossel-destaque-container) */
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    position: relative;
+    display: none;
+    transition: transform 0.6s ease-in-out;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+/* O link dentro do carousel-item */
+.carousel-item a {
+    display: block; /* Faz o link ocupar todo o item */
+    text-decoration: none; /* Remove o sublinhado padrão do link */
+    color: inherit; /* Garante que a cor do texto dentro do link não mude */
+}
+
+
+.carousel-item img {
+    display: block;
+    width: 100%; /* Ajustado para 100% para caber no contêiner pai */
+    height: 400px; /* Altura da imagem, ajuste conforme o desejado */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+    filter: brightness(0.8); /* Escurece levemente as imagens */
+    transition: filter 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.carousel-item img:hover {
+    filter: brightness(1); /* Remove o escurecimento ao passar o mouse */
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10%;
+    right: 10%;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adiciona sombra ao texto para melhor leitura */
+    border-radius: 5px;
+}
+
+.carousel-caption h5 {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.carousel-caption p {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+    opacity: 0.5;
+    transition: opacity 0.15s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 0.9;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+.carousel-indicators button {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    padding: 0;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: 0.5;
+    transition: opacity 0.6s ease;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+/* Ajustes de responsividade para o contêiner e imagem */
+@media (max-width: 768px) {
+     .carrossel-destaque-container {
+        padding: 0;
+     }
+     .carousel-item img { /* Ajustado para usar a classe direta da imagem */
+        height: 300px; /* Altura menor para telas menores */
+     }
+      .carousel-caption { /* Ajustado para usar a classe direta da legenda */
+        left: 5%;
+        right: 5%;
+     }
+     .carousel-caption h5 {
+        font-size: 1rem;
+     }
+     .carousel-caption p {
+         font-size: 0.8rem;
+     }
+}
+
+
+.conteudo-principal {
+    padding: 20px;
+    padding-top: 50px; /* Ajustado para haver espaço após o contêiner do carrossel */
+    margin-left: 40px; /* Aumentado o espaçamento lateral esquerdo */
+    margin-right: 40px; /* Aumentado o espaçamento lateral direito */
+    border: none; /* Remove as bordas */
+}
+#titulo {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+#subtitulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.secao-receitas {
+    margin-top: 100px;
+}
+h3 {
+    font-size: 24px;
+    color: #3a5e3d;
+    margin-bottom: 20px;
+}
+
+.categoria h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #3a5e3d;
+    font-weight: 500;
+
+}
+.categoria {
+    margin-left: 20px; /* Adicionada margem lateral esquerda */
+    margin-right: 20px; /* Já existente, mantida */
+}
+#Categorias
+{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px; /* Adicionado espaçamento lateral esquerdo */
+}
+.grade-receitas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Diminuído o espaçamento entre os cartões */
+    justify-content: center;
+    width: 100%;
+}
+.cartao-receita {
+    width: 100%; /* Ajusta a largura para ocupar o espaço disponível */
+    height: 350px; /* Define uma altura fixa para os cartões */
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: none;
+    margin: 0 auto; /* Centraliza os cartões */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cartao-receita img, .card img {
+    width: 100%;
+    height: 200px; /* Define uma altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.cartao-receita h5 {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#Entradas {
+    margin-bottom: 50px; /* Adicionado espaçamento entre Entradas e Lanches */
+}
+#Lanches {
+    margin-bottom: 50px; /* Adicionado espaçamento entre Lanches e Almoço */
+}
+.rodape {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+}
+
+.rodape h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.rodape h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3a5e3d; /* Alterado de #007bff (azul) para #3a5e3d (verde do cabeçalho) */
+    margin-bottom: 10px;
+}
+
+.rodape p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.rodape .placeholder {
+    background-color: #e9ecef;
+    height: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.rodape .social-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+.conteudo-principal, .secao-receitas {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os elementos horizontalmente */
+}
+
+.row {
+    justify-content: center; /* Centraliza os cards dentro das linhas */
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.card {
+    background-color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: #3a5e3d; /* Alterado para o verde da página */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .flex-md-row {
+        flex-direction: column;
+    }
+
+    .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Estilos para a página de detalhes */
+.detalhes-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detalhes-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.detalhes-header img {
+    flex: 1 1 300px;
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.detalhes-info {
+    flex: 2 1 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detalhes-info h1 {
+    font-size: 2rem;
+    color: #3a5e3d;
+    margin-bottom: 10px;
+}
+
+.detalhes-info p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.detalhes-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.ingredientes, .modo-preparo {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ingredientes h2, .modo-preparo h2 {
+    font-size: 1.5rem;
+    color: #3a5e3d;
+    margin-bottom: 15px;
+}
+
+.ingredientes ul {
+    list-style: disc;
+    padding-left: 20px;
+    color: #555;
+}
+
+.ingredientes ul li {
+    margin-bottom: 10px;
+}
+
+.modo-preparo p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}

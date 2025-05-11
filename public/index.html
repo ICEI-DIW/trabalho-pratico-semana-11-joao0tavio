@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquimia dos sabores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header class="cabecalho d-flex flex-column flex-md-row align-items-center justify-content-between fixed-top bg-success text-white shadow p-3">
+        <div class="d-flex align-items-center gap-2">
+            <button class="menu-alternar btn btn-outline-light" id="menu-alternar">&#9776;</button>
+            <span>Menu</span>
+        </div>
+        <h1 class="logo text-center flex-grow-1">Alquimia dos sabores</h1>
+        <nav class="navegacao-superior">
+            <form class="form-pesquisa d-flex" action="#" method="get">
+                <input type="text" name="q" class="form-control me-2" placeholder="Pesquisar">
+                <button type="submit" class="btn btn-light">🔍</button>
+            </form>
+        </nav>
+    </header>
+    <aside class="barra-lateral bg-white p-3 position-fixed top-0 start-0 vh-100 overflow-auto" id="barra-lateral">
+        <nav class="navegacao-lateral">
+            <button class="botao-fechar btn btn-outline-success ms-auto" id="botao-fechar">&times;</button>
+            <h2 class="titulo-barra-lateral text-success text-center">Categorias</h2>
+            <section>
+                <h3>Dieta e Estilo de Vida</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#">Vegana</a></li>
+                    <li><a href="#">Vegetariana</a></li>
+                    <li><a href="#">Low Carb</a></li>
+                    <li><a href="#">Sem Glúten</a></li>
+                    <li><a href="#">Sem Lactose</a></li>
+                    <li><a href="#">Keto</a></li>
+                    <li><a href="#">Paleo</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Ingredientes Principais</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#">Frango</a></li>
+                    <li><a href="#">Carne</a></li>
+                    <li><a href="#">Peixe e Frutos do Mar</a></li>
+                    <li><a href="#">Massas</a></li>
+                    <li><a href="#">Legumes e Verduras</a></li>
+                    <li><a href="#">Grãos e Cereais</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Ocasiões Especiais</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#">Aniversários</a></li>
+                    <li><a href="#">Natal</a></li>
+                    <li><a href="#">Ano Novo</a></li>
+                    <li><a href="#">Páscoa</a></li>
+                    <li><a href="#">Churrasco</a></li>
+                    <li><a href="#">Jantar Romântico</a></li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <div class="carrossel-destaque-container">
+        <h3 class="titulo-destaque text-start">Itens em Destaque</h3>
+        <div id="carrosselDestaques" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carrosselDestaques" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carrosselDestaques" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carrosselDestaques" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="detalhes.html?id=feijoada">
+                        <img src="imagens/feijoada-carrossel.jpg" class="d-block w-100" alt="Feijoada">
+                        <div class="carousel-caption d-none d-md-block" style="background: none;">
+                            <h5>Feijoada</h5>
+                            <p>Experimente esse delicioso prato tipicamente do Rio de Janeiro</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="detalhes.html?id=hamburguer">
+                        <img src="imagens/hamburger-carrossel.jpg" class="d-block w-100" alt="Hambúrguer">
+                        <div class="carousel-caption d-none d-md-block" style="background: none;">
+                            <h5>Hambúrguer</h5>
+                            <p>Descomplique na cozinha e faça essa delicioso hambúrger</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="detalhes.html?id=macarrao-bolonhesa">
+                        <img src="imagens/macarrao-carrossel.jpg" class="d-block w-100" alt="Macarrão à Bolonhesa">
+                        <div class="carousel-caption d-none d-md-block" style="background: none;">
+                            <h5>Macarrão à Bolonhesa</h5>
+                            <p>Uma massa italiana para alegrar seu dia!</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carrosselDestaques" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carrosselDestaques" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </div>
+    <main class="container mt-5 pt-5">
+        <section class="conteudo-principal">
+            <h3 class="mb-4">Receitas mais acessadas:</h3>
+            <div class="row">
+                </div>
+        </section>
+    </main>
+    <footer class="rodape text-center bg-light py-3 mt-4">
+        <div class="container">
+            <h4 class="mb-3 border-bottom pb-2">Informações do(a) Aluno(a)</h4>
+            <div class="row">
+                <div class="col-md-6 text-start">
+                    <h5 class="text-success">Sobre</h5>
+                    <p>Aluno na Pontífice Universidade Católica de Minas Gerais.</p>
+                </div>
+                <div class="col-md-6 text-start">
+                    <h5 class="text-success">Autoria</h5>
+                    <p><strong>Aluno:</strong> João Otávio Gurgel</p>
+                    <p><strong>Curso:</strong> Engenharia de Software</p>
+                    <p><strong>Turma:</strong> Noite</p>
+                    <h5 class="text-success mt-3">Redes Sociais:</h5>
+                    <a href="https://www.instagram.com/joao0tavio/" class="me-2"><img src="imagens/instagram-icon.png" alt="Instagram" class="social-icon"></a>
+                    <a href="https://www.linkedin.com/in/joao0tavio/"><img src="imagens/linkedin-icon.png" alt="LinkedIn" class="social-icon"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="assets/scripts/app.js"></script>
+</body>
+</html>
