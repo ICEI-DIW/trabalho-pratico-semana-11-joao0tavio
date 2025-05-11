@@ -113,7 +113,10 @@
         <section class="conteudo-principal">
             <h3 class="mb-4">Receitas mais acessadas:</h3>
             <div class="row">
+                <div id="receitas-container">
+                    <!-- Os dados das receitas serão carregados dinamicamente aqui -->
                 </div>
+            </div>
         </section>
     </main>
     <footer class="rodape text-center bg-light py-3 mt-4">
@@ -138,5 +141,19 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="assets/scripts/app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        const response = await fetch('http://localhost:3000/receitas');
+        const receitas = await response.json();
+        const receitasContainer = document.getElementById('receitas-container');
+        receitasContainer.innerHTML = receitas.map(receita => `
+          <div class="receita">
+            <h2>${receita.nome}</h2>
+            <p>${receita.descricao}</p>
+            <a href="detalhes.html?id=${receita.id}">Ver detalhes</a>
+          </div>
+        `).join('');
+      });
+    </script>
 </body>
 </html>
